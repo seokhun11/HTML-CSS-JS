@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>한석훈의 언어 소개</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{background-color: rgb(0, 50, 100);}
+        #header {background-color: skyblue; color: white; height: 20%; text-align: center;
+                color: darkblue; text-shadow: 1px 1px 2px black, 0 0 25px blue,  0 0 5px darkblue;  color: white; }
+        #content{
+            background-color: ghostwhite; float: left; width: 100%; height: 70%;}
+        #footer{background-color: skyblue; clear: both; height: 10%; text-align: right; font-style: italic; font-weight: lighter;}
+        #menu a{color: white; text-decoration: none;}
+        #container{height: 600px;}
+        
+        #s1{padding: 0px 0px; margin: 10px ;background-color: cornflowerblue; color: white;}
+        #s1:hover{background-color: cornflowerblue;}
+        .title {text-align: center;}
+        li{display: inline-block; }
+        #menu {
+            background-color: cornflowerblue;
+            display: flex;padding: 0;   
+        }
+        #menu li {
+            flex: 1; 
+            text-align: center;
+        }
+        
+        #menu a {
+            display: inline-block;
+            padding: 0px 0px;
+            text-decoration: none;
+            color: white;
+            }
+          
+h3{text-align: center;}    
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header"><h1>한석훈의 홈페이지</h1></div>
+        <ul id="menu">
+                <li><a id="s1" href="#" onclick="showContent('cContent')">C 언어</a></li>
+                <li><a id="s1" href="#" onclick="showContent('javaContent')">JAVA</a></li>
+                <li><a id="s1" href="#" onclick="showContent('pythonContent')">Python</a></li>
+                <li><a id="s1" href="#" onclick="showContent('htmlContent')">HTML</a></li>
+                <li><a id="s1" href="#" onclick="showContent('introContent')">소개글</a></li>
+        </ul>    
+        <div id="content">      
+            <iframe id="cContent" class="content" src="https://ko.wikipedia.org/wiki/C_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)" width="100%" height="100%" style="display:none;"></iframe>
+            <iframe id="javaContent" class="content" src="https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)" width="100%" height="100%" style="display:none;"></iframe>
+            <iframe id="pythonContent" class="content" src="https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%EC%8D%AC" width="100%" height="100%" style="display:none;"></iframe>
+            <iframe id="htmlContent" class="content" src="https://ko.wikipedia.org/wiki/HTML" width="100%" height="100%" style="display:none;"></iframe>
+        
+            <div id="introContent" class="content">
+                <h3>컴퓨터 공학이란</h3>
+                <img src="com.png" width="20%" height="70%">
+                <iframe src="word.txt" width="75%" height="350px"></iframe>    
+            </div>
+        </div>
+        <div id="footer">제작자 : 한석훈</div>
+    </div>
+
+    <script>
+        document.getElementById('introContent').style.display = "block";
+
+        function showContent(contentId) {
+            var contents = document.getElementsByClassName("content");
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = "none";
+            }
+
+            document.getElementById(contentId).style.display = "block";
+        }
+    </script>
+</body>
+</html>
