@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>퀴즈</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{background-color: rgb(0, 50, 100);}
+        #header {background-color: skyblue; color: white; height: 20%; text-align: center;
+                color: darkblue; text-shadow: 1px 1px 2px black, 0 0 25px blue,  0 0 5px darkblue;  color: white; }
+        #content{
+            background-color: skyblue; float: left; width: 100%; height: 70%; 
+             padding-top: 100px; padding-left: 100px; padding-right: 100px;}
+        #footer{background-color: skyblue; clear: both; height: 10%; text-align: right; font-style: italic; font-weight: lighter;}
+        #menu a{color: white; text-decoration: none;}
+        #container{height: 600px;}
+        
+        #s1{padding: 0px 0px; margin: 10px ;background-color: cornflowerblue; color: white;}
+        #s1:hover{background-color: cornflowerblue;}
+        .title {text-align: center;}
+        li{display: inline-block; }
+        #menu {
+            background-color: cornflowerblue;
+            display: flex; padding: 0;   
+        }
+        #menu li {
+            flex: 1; 
+            text-align: center;
+        }
+        
+        #menu a {
+            display: inline-block;
+            padding: 0px 0px;
+            text-decoration: none;
+            color: white;
+            }
+        
+        #list{background-color: cornflowerblue; text-align: center; 
+            font-weight : bold; border: 2px solid wheat;}
+            
+        /* 채점 버튼 스타일 */
+        button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        
+
+    }
+    </style>
+    <script>
+        let index = 1; // 인덱스 초기화
+        let guestbook = []; // 방명록 리스트
+        
+        function saveData() {
+            var dept = document.stuInfo.dept.value;
+            var name = document.stuInfo.sName.value;
+            index++; // 다음 인덱스 증가
+            // 방명록 리스트에 학과와 이름 추가
+            guestbook.push({ dept: dept, name: name });
+        }
+
+        function showGuestbook() {
+            var guestbookContent = document.getElementById('guestbookContent');
+            guestbookContent.innerHTML = '';
+            guestbook.forEach((entry, i) => {
+                guestbookContent.innerHTML += `${i + 1}. 학 과 : ${entry.dept} 이 름 : ${entry.name}<br>`;
+            });
+        }
+
+        function submitForm() {
+            var dept = document.stuInfo.dept.value;
+            var name = document.stuInfo.sName.value;
+            alert(`${dept}학과 ${name}님 등록되셨습니다.`);
+        }
+        </script>
+
+</head>
+<body>
+    <div id="container">
+        <div id="header"><h1>한석훈의 퀴즈</h1></div>
+        <ul id="menu">
+                <li><a id="s1" href="c.html">C 언어</a></li>
+                <li><a id="s1" href="java.html">JAVA</a></li>
+                <li><a id="s1" href="index.html">Home</a></li>
+                <li><a id="s1" href="html.html">HTML</a></li>
+                <li><a id="s1" href="algo.html">알고리즘</a></li>
+        </ul>    
+        <div id="content">      
+            <div id ="list">
+            <form name="stuInfo" >
+             <p>&nbsp;&nbsp;&nbsp;&nbsp;학과와 이름을 입력하시오</p>
+                학 과 : <input type="text" name="dept" /><br>
+            <br>이 름 : <input type="text" name="sName" /> <br><br> 
+            </form>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="submitForm(); saveData();">제출</button>
+            <button onclick="showGuestbook();">방명록</button>
+            <div id="guestbookContent"></div>
+            </div>   
+        </div>
+        <hr><div id="footer">제작자 : 한석훈</div>
+    </div>
+</body>
+</html>
